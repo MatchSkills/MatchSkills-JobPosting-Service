@@ -35,7 +35,7 @@ public class JobPostingController {
         return ResponseEntity.status(HttpStatus.CREATED).body(jobPostingService.createJob(createJobPostRequest));
     }
 
-    @PutMapping("/{id]/edit")
+    @PutMapping("/{id}/edit")
     @PreAuthorize("hasRole('Company')")
     public ResponseEntity<JobPostingResponse> editJob(@Valid  @RequestHeader("Authorization") String accesstoken, @RequestBody EditJobPostingRequest editJobPostRequest, @PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(jobPostingService.editJob(editJobPostRequest, id, accesstoken));
