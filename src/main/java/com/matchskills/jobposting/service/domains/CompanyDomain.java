@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-public class UserDomain implements UserDetails {
+public class CompanyDomain implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + RoleType.Candidate.name()), new SimpleGrantedAuthority("ROLE_" + RoleType.Company.name()));
@@ -24,7 +24,7 @@ public class UserDomain implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return role;
     }
 
     private Long id;

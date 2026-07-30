@@ -1,35 +1,23 @@
-package com.matchskills.jobposting.service.entitys;
+package com.matchskills.jobposting.service.domains;
 
-import com.matchskills.jobposting.service.domains.JobPostingDomain;
 import com.matchskills.jobposting.service.dtos.JobPostingResponse;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "jobposts")
 @AllArgsConstructor
 @Getter
 @Setter
-@Builder
-public class JobPostingEntity {
+public class JobPostingDomain {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long companyId;
     private String title;
     private String description;
     private String local;
     private LocalDate createAt;
-
-    public JobPostingDomain toJobPostingDomain(){
-        return new JobPostingDomain(this.id,this.companyId,this.title,this.description,this.local,this.createAt);
-    }
 
     public JobPostingResponse toJobPostingResponse(){
         return new JobPostingResponse(this.id,this.companyId,this.title,this.description,this.local,this.createAt);
