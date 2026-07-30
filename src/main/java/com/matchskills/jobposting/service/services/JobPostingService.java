@@ -1,6 +1,5 @@
 package com.matchskills.jobposting.service.services;
 
-import com.matchskills.jobposting.service.domains.JobPostingDomain;
 import com.matchskills.jobposting.service.dtos.CreateJobPostingRequest;
 import com.matchskills.jobposting.service.dtos.EditJobPostingRequest;
 import com.matchskills.jobposting.service.dtos.JobPostingResponse;
@@ -67,7 +66,7 @@ public class JobPostingService {
         }
 
         targetJobPosting.setTitle(editJobPostingRequest.getTitle());
-        targetJobPosting.getDescription();
+        targetJobPosting.setDescription(editJobPostingRequest.getDescription());
         targetJobPosting.setLocal(editJobPostingRequest.getLocal());
 
         var savedJobPosting = jobPostingRepository.save(targetJobPosting);

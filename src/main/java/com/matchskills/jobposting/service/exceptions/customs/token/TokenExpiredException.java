@@ -6,8 +6,4 @@ public class TokenExpiredException extends RuntimeException {
         super("Token is expired");
     }
 
-    public TokenExpiredException(String message) {
-        super(message);
-    }
-
 }
