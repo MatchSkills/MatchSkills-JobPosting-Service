@@ -44,6 +44,8 @@ public class JobPostingService {
                 .title(createJobPostRequest.getTitle())
                 .description(createJobPostRequest.getDescription())
                 .local(createJobPostRequest.getLocal())
+                .targetHardskills(createJobPostRequest.getTargetHardskills())
+                .targetSoftskills(createJobPostRequest.getTargetSoftskills())
                 .build();
 
         var savedJobPost = jobPostingRepository.save(newJobPost);

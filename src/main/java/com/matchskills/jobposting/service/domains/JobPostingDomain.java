@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @AllArgsConstructor
 @Getter
@@ -18,9 +20,11 @@ public class JobPostingDomain {
     private String description;
     private String local;
     private LocalDate createAt;
+    private Map<String, Integer> targetSoftskills;
+    private List<String> targetHardskills;
 
     public JobPostingResponse toJobPostingResponse(){
-        return new JobPostingResponse(this.id,this.companyId,this.title,this.description,this.local,this.createAt);
+        return new JobPostingResponse(this.id,this.companyId,this.title,this.description,this.local,this.createAt,this.targetSoftskills,this.targetHardskills);
     }
 
 }

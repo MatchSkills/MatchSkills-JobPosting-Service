@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @AllArgsConstructor
 @Getter
@@ -17,5 +19,7 @@ public class JobPostingResponse {
     private String description;
     private String local;
     private LocalDate createAt;
+    private Map<String, Integer> targetSoftskills;
+    private List<String> targetHardskills;
 
 }

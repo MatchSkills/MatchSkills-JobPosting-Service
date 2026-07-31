@@ -4,5 +4,7 @@ CREATE TABLE jobposts (
     title varchar(150) NOT NULL,
     description varchar(500) NOT NULL,
     local varchar(500) NOT NULL,
-    create_at DATE DEFAULT CURRENT_DATE
+    create_at DATE DEFAULT CURRENT_DATE,
+    target_softskills JSON,
+    target_hardskills VARCHAR(255) ARRAY NOT NULL
 );
