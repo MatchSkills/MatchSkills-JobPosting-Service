@@ -13,7 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/job")
+@RequestMapping("/jobs")
 public class JobPostingController {
 
     final private JobPostingService jobPostingService;

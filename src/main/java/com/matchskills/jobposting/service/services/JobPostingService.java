@@ -26,7 +26,7 @@ public class JobPostingService {
     }
 
     public Page<JobPostingResponse> getAllJobPostingByCompanyId(Long id, Pageable pageable){
-        return jobPostingRepository.findAllById(
+        return jobPostingRepository.findAllByCompanyId(
                 id,
                 PageRequest.of(
                         pageable.getPageNumber(),

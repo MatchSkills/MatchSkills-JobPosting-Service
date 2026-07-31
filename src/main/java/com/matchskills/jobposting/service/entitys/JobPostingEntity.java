@@ -3,16 +3,14 @@ package com.matchskills.jobposting.service.entitys;
 import com.matchskills.jobposting.service.domains.JobPostingDomain;
 import com.matchskills.jobposting.service.dtos.JobPostingResponse;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "jobposts")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Builder
