@@ -1,5 +1,6 @@
 package com.matchskills.jobposting.service.controllers;
 
+import com.matchskills.jobposting.service.dtos.AddSoftSkillsJobPostingRequest;
 import com.matchskills.jobposting.service.dtos.CreateJobPostingRequest;
 import com.matchskills.jobposting.service.dtos.EditJobPostingRequest;
 import com.matchskills.jobposting.service.dtos.JobPostingResponse;
@@ -39,6 +40,14 @@ public class JobPostingController {
     @PreAuthorize("hasRole('Company')")
     public ResponseEntity<JobPostingResponse> editJob(@Valid  @RequestHeader("Authorization") String accesstoken, @RequestBody EditJobPostingRequest editJobPostRequest, @PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(jobPostingService.editJob(editJobPostRequest, id, accesstoken));
+
+    }
+
+
+    @PutMapping("/{id}/targetSoftskill")
+    @PreAuthorize("hasRole('Company')")
+    public ResponseEntity<JobPostingResponse> addTargetSoftskills(@Valid  @RequestHeader("Authorization") String accesstoken, @Valid @RequestBody AddSoftSkillsJobPostingRequest addSoftSkillsJobPostingRequest, @PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(jobPostingService.addSoftSkillTarget(id,accesstoken,addSoftSkillsJobPostingRequest.getTargetSoftskills()));
 
     }
 

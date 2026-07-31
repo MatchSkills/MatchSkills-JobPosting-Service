@@ -14,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class JobPostingService {
 
@@ -74,6 +76,28 @@ public class JobPostingService {
         var savedJobPosting = jobPostingRepository.save(targetJobPosting);
 
         return savedJobPosting.toJobPostingDomain().toJobPostingResponse();
+
+    }
+
+    public JobPostingResponse addSoftSkillTarget(Long id, String token, Map<String, Integer> softskills){
+
+        token = jwtService.getToken(token);
+
+        var decodedToken = jwtService.decodeToken(token);
+
+        var targetJobPosting = jobPostingRepository.findById(id)
+                .orElseThrow(JobPostingNotFoundException::new);
+
+        if (!targetJobPosting.getCompanyId().equals(decodedToken.getUserId())){
+            throw new NotJobPostingOwnerException();
+        }
+
+        targetJobPosting.setTargetSoftskills(softskills);
+
+        var savedJobPosting = jobPostingRepository.save(targetJobPosting);
+
+        return savedJobPosting.toJobPostingDomain().toJobPostingResponse();
+
 
     }
 
