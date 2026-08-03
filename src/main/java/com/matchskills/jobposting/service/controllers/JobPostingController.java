@@ -30,6 +30,11 @@ public class JobPostingController {
 
     }
 
+    @GetMapping("/{id}")
+    public  ResponseEntity<JobPostingResponse> getJobPostingById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(jobPostingService.getJobpostingById(id));
+    }
+
     @PostMapping("/create")
     @PreAuthorize("hasRole('Company')")
     public ResponseEntity<JobPostingResponse> createJob(@Valid @RequestBody CreateJobPostingRequest createJobPostRequest){

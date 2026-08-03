@@ -4,6 +4,25 @@
 
 --- 
 
+### GET `/{id}`
+
+Response body expected:
+
+   ```
+   {
+    "id": Long
+    "companyId": String
+    "title": String
+    "description": String
+    "local": String
+    "createAt: String
+    "targetHardskills": List<String>
+    "targetSoftskills": {
+            "skill name": Long //Long is a level 1 to 5
+        }
+    }
+    }
+
 --- 
 
 ### GET `/company/{id}`

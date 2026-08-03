@@ -118,4 +118,13 @@ public class JobPostingService {
 
     }
 
+    public JobPostingResponse getJobpostingById(Long id){
+
+        var targetJobposting = jobPostingRepository.findById(id)
+                .orElseThrow(JobPostingNotFoundException::new);
+
+        return  targetJobposting.toJobPostingResponse();
+
+    }
+
 }
