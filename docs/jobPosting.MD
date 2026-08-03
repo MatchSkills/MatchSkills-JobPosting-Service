@@ -22,7 +22,14 @@ Response body expected:
         }
     }
    ```
-    
+
+
+#### Returns
+
+* `200 - OK` - Sucess.
+* `400 - BAD REQUEST` - Invalid parameters(null parameters, size invalid).
+* `404 - NOT FOUND` - Job posting not found.
+
 --- 
 
 ### GET `/company/{id}`
