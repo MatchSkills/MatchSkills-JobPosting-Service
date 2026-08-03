@@ -21,8 +21,8 @@ Response body expected:
             "skill name": Long //Long is a level 1 to 5
         }
     }
-    }
-
+   ```
+    
 --- 
 
 ### GET `/company/{id}`
