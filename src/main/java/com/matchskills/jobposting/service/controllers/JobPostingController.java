@@ -23,6 +23,11 @@ public class JobPostingController {
         this.jobPostingService = jobPostingService;
     }
 
+    @GetMapping
+    public ResponseEntity<Page<JobPostingResponse>> getJobPostByCreateDate(Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(jobPostingService.getAllJobPosting(pageable));
+
+    }
 
     @GetMapping("/company/{id}")
     public ResponseEntity<Page<JobPostingResponse>> getJobPostByCompanyId(@PathVariable Long id, Pageable pageable){

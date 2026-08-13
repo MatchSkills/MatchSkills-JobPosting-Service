@@ -27,6 +27,11 @@ public class JobPostingService {
         this.jwtService = jwtService;
     }
 
+    public Page<JobPostingResponse> getAllJobPosting(Pageable pageable){
+        return jobPostingRepository.findAll(pageable)
+                .map(JobPostingEntity::toJobPostingResponse);
+    }
+
     public Page<JobPostingResponse> getAllJobPostingByCompanyId(Long id, Pageable pageable){
         return jobPostingRepository.findAllByCompanyId(
                 id,
