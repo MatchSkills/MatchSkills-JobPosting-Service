@@ -42,6 +42,7 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/").permitAll()
                         .requestMatchers(HttpMethod.GET,"/jobs/company/").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/jobs/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated()
                 )
